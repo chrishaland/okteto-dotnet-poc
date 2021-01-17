@@ -63,7 +63,7 @@ namespace okteto_dotnet_poc
         private static async Task MigrateDatabase(IHost host)
         {
             using var context = host.Services.GetService<Database>();
-            await context?.Database.MigrateAsync();
+            await context?.Database?.MigrateAsync();
         }
 
         private static void ConfigureAppConfiguration(WebHostBuilderContext context, IConfigurationBuilder config)

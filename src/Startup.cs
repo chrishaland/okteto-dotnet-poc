@@ -19,7 +19,7 @@ namespace okteto_dotnet_poc
         public void ConfigureServices(IServiceCollection services)
         {
             var databaseOptions = Configuration.GetSection("Database").Get<DatabaseOptions>();
-            if (!string.IsNullOrEmpty(databaseOptions.Server) && !string.IsNullOrEmpty(databaseOptions.Name)) 
+            if (!string.IsNullOrEmpty(databaseOptions?.Server) && !string.IsNullOrEmpty(databaseOptions?.Name)) 
             {
                 var connectionString = $"Server={databaseOptions.Server};Database={databaseOptions.Name};User Id={databaseOptions.Username};Password={databaseOptions.Password};MultipleActiveResultSets=true;";
                 services.AddDbContext<Database>(options => options.UseSqlServer(connectionString));
