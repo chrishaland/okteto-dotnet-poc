@@ -1,0 +1,14 @@
+name: okteto-dotnet-poc
+image: chrishaland/okteto-dotnet-poc:dev
+environment:
+- ASPNETCORE_ENVIRONMENT=Development
+command: [ "dotnet", "watch", "run" ]
+remote: 22000
+sync:
+- .:/src
+forward:
+- 5000:5000
+resources:
+  limits:
+    cpu: "1"
+    memory: 2Gi
